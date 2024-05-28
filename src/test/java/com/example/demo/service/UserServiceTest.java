@@ -91,4 +91,13 @@ public class UserServiceTest {
         assertThat(userEntity.getAddress()).isEqualTo("서울");
         assertThat(userEntity.getNickname()).isEqualTo("무관심하자");
     }
+
+    @Test
+    void TestLogin() {
+        userService.login(1);
+
+        UserEntity userEntity = userService.getById(1);
+
+        assertThat(userEntity.getLastLoginAt()).isGreaterThan(0);
+    }
 }
