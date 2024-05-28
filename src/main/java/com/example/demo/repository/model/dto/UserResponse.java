@@ -1,6 +1,6 @@
-package com.example.demo.model.dto;
+package com.example.demo.repository.model.dto;
 
-import com.example.demo.model.UserStatus;
+import com.example.demo.repository.model.UserStatus;
 import lombok.Getter;
 import lombok.Setter;
 

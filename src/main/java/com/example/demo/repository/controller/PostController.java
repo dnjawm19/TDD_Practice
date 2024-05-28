@@ -1,9 +1,9 @@
-package com.example.demo.controller;
+package com.example.demo.repository.controller;
 
-import com.example.demo.model.dto.PostResponse;
-import com.example.demo.model.dto.PostUpdateDto;
+import com.example.demo.repository.model.dto.PostResponse;
+import com.example.demo.repository.model.dto.PostUpdateDto;
 import com.example.demo.repository.PostEntity;
-import com.example.demo.service.PostService;
+import com.example.demo.repository.service.PostService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

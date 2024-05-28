@@ -1,15 +1,16 @@
-package com.example.demo.service;
+package com.example.demo.repository.service;
 
-import com.example.demo.exception.CertificationCodeNotMatchedException;
-import com.example.demo.exception.ResourceNotFoundException;
-import com.example.demo.model.UserStatus;
-import com.example.demo.model.dto.UserCreateDto;
-import com.example.demo.model.dto.UserUpdateDto;
+import com.example.demo.repository.exception.CertificationCodeNotMatchedException;
+import com.example.demo.repository.exception.ResourceNotFoundException;
+import com.example.demo.repository.model.UserStatus;
+import com.example.demo.repository.model.dto.UserCreateDto;
+import com.example.demo.repository.model.dto.UserUpdateDto;
 import com.example.demo.repository.UserEntity;
 import com.example.demo.repository.UserRepository;
 import java.time.Clock;
 import java.util.Optional;
 import java.util.UUID;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
