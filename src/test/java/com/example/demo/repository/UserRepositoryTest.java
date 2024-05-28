@@ -1,6 +1,5 @@
 package com.example.demo.repository;
 
-
 import com.example.demo.repository.model.UserStatus;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

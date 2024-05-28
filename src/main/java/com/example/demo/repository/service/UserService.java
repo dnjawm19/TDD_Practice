@@ -24,7 +24,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final JavaMailSender mailSender;
 
-    public Optional<UserEntity> getById(long id) {
+    public Optional<UserEntity> findById(long id) {
         return userRepository.findByIdAndStatus(id, UserStatus.ACTIVE);
     }
 
@@ -33,7 +33,7 @@ public class UserService {
             .orElseThrow(() -> new ResourceNotFoundException("Users", email));
     }
 
-    public UserEntity getByIdOrElseThrow(long id) {
+    public UserEntity findByIdOrElseThrow(long id) {
         return userRepository.findByIdAndStatus(id, UserStatus.ACTIVE)
             .orElseThrow(() -> new ResourceNotFoundException("Users", id));
     }
@@ -54,7 +54,7 @@ public class UserService {
 
     @Transactional
     public UserEntity updateUser(long id, UserUpdateDto userUpdateDto) {
-        UserEntity userEntity = getByIdOrElseThrow(id);
+        UserEntity userEntity = findByIdOrElseThrow(id);
         userEntity.setNickname(userUpdateDto.getNickname());
         userEntity.setAddress(userUpdateDto.getAddress());
         userEntity = userRepository.save(userEntity);
