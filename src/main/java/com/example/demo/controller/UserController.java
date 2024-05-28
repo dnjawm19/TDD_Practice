@@ -1,10 +1,10 @@
-package com.example.demo.repository.controller;
+package com.example.demo.controller;
 
-import com.example.demo.repository.model.dto.MyProfileResponse;
-import com.example.demo.repository.model.dto.UserResponse;
-import com.example.demo.repository.model.dto.UserUpdateDto;
+import com.example.demo.model.dto.MyProfileResponse;
+import com.example.demo.model.dto.UserResponse;
+import com.example.demo.model.dto.UserUpdateDto;
 import com.example.demo.repository.UserEntity;
-import com.example.demo.repository.service.UserService;
+import com.example.demo.service.UserService;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.tags.Tag;

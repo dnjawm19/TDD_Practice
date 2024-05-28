@@ -1,4 +1,4 @@
-package com.example.demo.repository.model;
+package com.example.demo.model;
 
 public enum UserStatus {
     PENDING, INACTIVE, ACTIVE
