@@ -39,4 +39,16 @@ public class UserServiceTest {
 
         assertThatThrownBy(() -> userService.getByEmail(email)).isInstanceOf(ResourceNotFoundException.class);
     }
+
+    @Test
+    void TestGetById() {
+        UserEntity result = userService.getById(1);
+
+        assertThat(result.getNickname()).isEqualTo("무관심");
+    }
+
+    @Test
+    void TestGetByIdStatusPending() {
+        assertThatThrownBy(() -> userService.getById(2)).isInstanceOf(ResourceNotFoundException.class);
+    }
 }
