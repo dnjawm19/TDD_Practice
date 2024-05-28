@@ -6,10 +6,10 @@ import com.example.demo.model.dto.PostUpdateDto;
 import com.example.demo.repository.PostEntity;
 import com.example.demo.repository.PostRepository;
 import com.example.demo.repository.UserEntity;
-import java.time.Clock;
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.time.Clock;
 
 @Service
 @RequiredArgsConstructor

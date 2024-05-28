@@ -24,28 +24,28 @@ public class UserRepositoryTest {
 
     @Test
     void TestFindByIdAndStatus() {
-        Optional<UserEntity> result = userRepository.findByIdAndStatus(1,UserStatus.ACTIVE);
+        Optional<UserEntity> result = userRepository.findByIdAndStatus(1, UserStatus.ACTIVE);
 
         assertThat(result.isPresent()).isTrue();
     }
 
     @Test
     void TestFindByIdAndStatusEmpty() {
-        Optional<UserEntity> result = userRepository.findByIdAndStatus(1,UserStatus.PENDING);
+        Optional<UserEntity> result = userRepository.findByIdAndStatus(1, UserStatus.PENDING);
 
         assertThat(result.isEmpty()).isTrue();
     }
 
     @Test
     void TestFindByEmailAndStatus() {
-        Optional<UserEntity> result = userRepository.findByEmailAndStatus("dnjawm19@naver.com",UserStatus.ACTIVE);
+        Optional<UserEntity> result = userRepository.findByEmailAndStatus("dnjawm19@naver.com", UserStatus.ACTIVE);
 
         assertThat(result.isPresent()).isTrue();
     }
 
     @Test
     void TestFindByEmailAndStatusEmpty() {
-        Optional<UserEntity> result = userRepository.findByEmailAndStatus("dnjawm19@naver.com",UserStatus.PENDING);
+        Optional<UserEntity> result = userRepository.findByEmailAndStatus("dnjawm19@naver.com", UserStatus.PENDING);
 
         assertThat(result.isEmpty()).isTrue();
     }

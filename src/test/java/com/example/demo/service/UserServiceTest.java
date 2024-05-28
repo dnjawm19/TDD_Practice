@@ -23,8 +23,8 @@ import static org.mockito.ArgumentMatchers.any;
 @SpringBootTest
 @TestPropertySource("classpath:test-application.properties")
 @SqlGroup({
-        @Sql(value = "/sql/user-service-test-data.sql",executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD),
-        @Sql(value = "/sql/delete-all.sql",executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+    @Sql(value = "/sql/user-service-test-data.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD),
+    @Sql(value = "/sql/delete-all.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
 })
 @Sql("/sql/user-service-test-data.sql")
 public class UserServiceTest {
@@ -65,10 +65,10 @@ public class UserServiceTest {
     @Test
     void TestCreateDto() {
         UserCreateDto userCreateDto = UserCreateDto.builder()
-                .email("dnjawm19@naver.com")
-                .address("경기도")
-                .nickname("무관심")
-                .build();
+            .email("dnjawm19@naver.com")
+            .address("경기도")
+            .nickname("무관심")
+            .build();
         BDDMockito.doNothing().when(mailSender).send(any(SimpleMailMessage.class));
 
         UserEntity result = userService.create(userCreateDto);
@@ -80,11 +80,11 @@ public class UserServiceTest {
     @Test
     void TestUpdateDto() {
         UserUpdateDto userUpdateDto = UserUpdateDto.builder()
-                .address("서울")
-                .nickname("무관심하자")
-                .build();
+            .address("서울")
+            .nickname("무관심하자")
+            .build();
 
-        userService.update(1,userUpdateDto);
+        userService.update(1, userUpdateDto);
 
         UserEntity userEntity = userService.getById(1);
         assertThat(userEntity.getId()).isNotNull();
