@@ -69,4 +69,38 @@ public class UserRepositoryTest {
 
         assertThat(result.isEmpty()).isTrue();
     }
+
+    @Test
+    void TestFindByEmailAndStatus() {
+        UserEntity userEntity = new UserEntity();
+
+        userEntity.setEmail("dnjawm19@naver.com");
+        userEntity.setAddress("경기도");
+        userEntity.setNickname("무관심");
+        userEntity.setStatus(UserStatus.ACTIVE);
+        userEntity.setCertificationCode("aaaa-aa");
+        userEntity.setId(1L);
+
+        userRepository.save(userEntity);
+        Optional<UserEntity> result = userRepository.findByEmailAndStatus("dnjawm19@naver.com",UserStatus.ACTIVE);
+
+        assertThat(result.isPresent()).isTrue();
+    }
+
+    @Test
+    void TestFindByEmailAndStatusEmpty() {
+        UserEntity userEntity = new UserEntity();
+
+        userEntity.setEmail("dnjawm19@naver.com");
+        userEntity.setAddress("경기도");
+        userEntity.setNickname("무관심");
+        userEntity.setStatus(UserStatus.ACTIVE);
+        userEntity.setCertificationCode("aaaa-aa");
+        userEntity.setId(1L);
+
+        userRepository.save(userEntity);
+        Optional<UserEntity> result = userRepository.findByEmailAndStatus("dnjawm19@naver.com",UserStatus.PENDING);
+
+        assertThat(result.isEmpty()).isTrue();
+    }
 }
