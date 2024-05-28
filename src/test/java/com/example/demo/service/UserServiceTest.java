@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.exception.CertificationCodeNotMatchedException;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.model.UserStatus;
 import com.example.demo.model.dto.UserCreateDto;
@@ -99,5 +100,21 @@ public class UserServiceTest {
         UserEntity userEntity = userService.getById(1);
 
         assertThat(userEntity.getLastLoginAt()).isGreaterThan(0);
+    }
+
+    @Test
+    void TestUsingCodeStatusPendingToActive() {
+        userService.verifyEmail(2, "aaab");
+
+        UserEntity userEntity = userService.getById(2);
+
+        assertThat(userEntity.getStatus()).isEqualTo(UserStatus.ACTIVE);
+    }
+
+    @Test
+    void TestUsingWrongCodeStatusPendingToActive() {
+        assertThatThrownBy(() -> {
+            userService.verifyEmail(2, "aaaa");
+        }).isInstanceOf(CertificationCodeNotMatchedException.class);
     }
 }
