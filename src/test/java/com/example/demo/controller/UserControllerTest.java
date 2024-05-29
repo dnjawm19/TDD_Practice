@@ -65,6 +65,13 @@ public class UserControllerTest {
     }
 
     @Test
+    void TestVerifyEmailFailed() throws Exception {
+        mockMvc.perform(get("/api/users/2/verify")
+                .queryParam("certificationCode", "aaaa"))
+            .andExpect(status().isForbidden());
+    }
+
+    @Test
     void TestGetMyInfo() throws Exception {
         mockMvc.perform(get("/api/users/me")
                 .header("EMAIL", "dnjawm19@naver.com"))
